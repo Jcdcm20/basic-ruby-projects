@@ -2,7 +2,7 @@ def caesar_cipher(word, shift)
     letters = word.split('')
     temp = []
     final_word = ''
-    
+
     letters.each do |l|
         if l.ord == 32
             temp.push(l.ord)
@@ -18,4 +18,10 @@ def caesar_cipher(word, shift)
     puts final_word
 end
 
-caesar_cipher("this is a test", 5)
+print "Enter a phrase you wish to encrypt: "
+word = gets
+
+print "Enter the shift you wish to apply: "
+shift = gets.to_i
+
+caesar_cipher(word, shift)
