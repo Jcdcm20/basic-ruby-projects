@@ -4,10 +4,20 @@ def caesar_cipher(word, shift)
     final_word = ''
 
     letters.each do |l|
-        if l.ord == 32
-            temp.push(l.ord)
+        if l.ord.between?(65, 90)
+            if l.ord + shift > 90
+                temp.push((l.ord + shift) - 26)
+            else
+                temp.push(l.ord + shift)
+            end
+        elsif l.ord.between?(97, 122)
+            if l.ord + shift  >  122
+                temp.push((l.ord + shift) - 26)
+            else
+                temp.push(l.ord + shift)
+            end
         else
-            temp.push(l.ord + shift)
+            temp.push(l.ord)
         end
     end
     
