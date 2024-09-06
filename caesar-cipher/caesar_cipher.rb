@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 def caesar_cipher(word, shift)
-  letters = word.split('')
+  letters = word.chars
   temp = []
   final_word = ''
 
