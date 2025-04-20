@@ -1,24 +1,22 @@
-def stock_picker(stocks) 
-    lowest = stocks[0]
-    profit = 0
-    low_index = 0
-    high_index = 0
-    days = []
+# frozen_string_literal: true
 
-    stocks.each_with_index do |price, index|
-        if price < lowest
-            lowest = price
-            low_index = index         
-        else
-            if (price - lowest) > profit
-                profit = price - lowest
-                days = [low_index, index]
-            end
-        end
+def stock_picker(prices)
+  lowest = prices[0]
+  profit = low_index = high_index = 0
+
+  prices.each_with_index do |price, index|
+    if price < lowest
+      lowest = index
+      low_index = index
+    elsif (price - lowest) > profit
+      profit = price - lowest
+      high_index = index
     end
-    p days
+  end
+
+  [low_index, high_index]
 end
 
 stocks = [17, 3, 6, 9, 15, 8, 5, 1, 10]
 
-stock_picker(stocks)
+puts stock_picker(stocks)
