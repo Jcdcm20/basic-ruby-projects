@@ -1,26 +1,14 @@
-def bubble_sort(array) 
-    sorted = false
-    i = 0
-    c = 0
-
-    while i < (array.length - 1)
-        if array[i] > array[i + 1]
-            array[i], array[i + 1] = array[i + 1], array[i]
-            c += 1
+def bubble_sort(array)
+    for i in 0...array.length
+      for j in 0...(array.length - 1)
+        if array[j] > array[j + 1]
+          t = array[j]
+          array[j] = array[j + 1]
+          array[j + 1] = t
         end
-           
-        i += 1
+      end
     end
-          
-    if c == 0
-        sorted = true
-    else
-        bubble_sort(array)
-    end
-    
-    return array
+    array
 end
 
-sorted_array = bubble_sort([4, 3, 78, 2, 0, 2])
-
-p sorted_array
+p bubble_sort([4, 3, 78, 2, 0, 2])
