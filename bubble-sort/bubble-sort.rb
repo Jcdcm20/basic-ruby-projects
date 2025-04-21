@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 def bubble_sort(array)
-    for i in 0...array.length
-      for j in 0...(array.length - 1)
-        if array[j] > array[j + 1]
-          t = array[j]
-          array[j] = array[j + 1]
-          array[j + 1] = t
-        end
-      end
+  (0...array.length).each do |_|
+    (0...(array.length - 1)).each do |j|
+      next unless array[j] > array[j + 1]
+
+      t = array[j]
+      array[j] = array[j + 1]
+      array[j + 1] = t
     end
-    array
+  end
+  array
 end
 
 p bubble_sort([4, 3, 78, 2, 0, 2])
